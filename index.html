@@ -58,28 +58,6 @@
       font-size: 14px;
     }
 
-    .btn {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      padding: 14px;
-      border-radius: 10px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .telegram { background: #3b82f6; }
-    .telegram:hover { background: #2563eb; }
-
-    .whatsapp { background: #22c55e; }
-    .whatsapp:hover { background: #16a34a; }
-
-    .portfolio { background: #374151; }
-    .portfolio:hover { background: #1f2937; }
-
     .cta {
       background: linear-gradient(to right, #ec4899, #f59e0b);
       padding: 12px 20px;
@@ -128,14 +106,8 @@
       border-radius: 10px;
       border: 2px solid #2d2d2d;
       display: block;
-      transition: all 0.3s ease;
       cursor: pointer;
-    }
-
-    .projects-gallery img:hover,
-    .projects-gallery img:active {
-      transform: scale(1.5);
-      z-index: 10;
+      transition: transform 0.2s ease;
     }
 
     .services ul {
@@ -166,66 +138,114 @@
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       }
     }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Шапка -->
-    <div class="header">
-      <div class="logo">
-        <img src="logo.jpg" alt="Логотип" />
-      </div>
-      <h1>AI-боты • Автоматизация • CRM</h1>
-      <p class="description">Создаём умных ассистентов, подключаем Telegram и WhatsApp, Google Sheets, Altegio, AmoCRM и многое другое.</p>
+  <!-- Шапка -->
+  <div class="header">
+    <div class="logo">
+      <img src="logo.jpg" alt="Логотип" />
     </div>
-
-    <!-- О нас -->
-    <section class="about">
-      <h2>О нас</h2>
-      <p>Мы — команда разработчиков, автоматизирующая бизнес-процессы с помощью ИИ и чат-ботов. Более 5 лет опыта, десятки интеграций: от CRM до платёжных систем.</p>
-    </section>
-
-    <!-- Примеры работ -->
-    <section class="projects">
-      <h2>Примеры работ</h2>
-      <div class="projects-gallery">
-        <img src="12.jpg" alt="Пример 1">
-        <img src="13.jpg" alt="Пример 2">
-        <img src="14.jpg" alt="Пример 3">
-      </div>
-    </section>
-
-    <!-- Тест -->
-    <section class="about">
-      <h2>Протестируйте бота и финансовый блок</h2>
-      <p>Мы предлагаем вам протестировать нашего чат-бота и встроенный финансовый дашборд прямо сейчас:</p><br>
-
-      <p>1. Перейдите в тестовый дашборд: нажмите кнопку ниже и откройте.</p>
-      <a href="https://t.me/your_bot" class="cta" target="_blank">Дашборд</a>
-      <p>2. Перейдите в Telegram: нажмите кнопку ниже и откройте бота.</p>
-      <a href="https://t.me/your_bot" class="cta" target="_blank">Telegram</a>
-      <p>3. Оцените фин. блок: посмотрите, как фиксируются заявки, расходы, доход и графики.</p>
-    </section>
-
-    <!-- Услуги -->
-    <section class="services">
-      <h2>Услуги и цены</h2>
-      <ul>
-        <li><span>Telegram-бот под ключ</span><span>от 50 000₸</span></li>
-        <li><span>WhatsApp-бот с рассылкой</span><span>от 60 000₸</span></li>
-        <li><span>CRM + Google Sheets интеграция</span><span>от 40 000₸</span></li>
-        <li><span>AI-бот (ChatGPT/Claude)</span><span>от 70 000₸</span></li>
-      </ul>
-    </section>
-
-    <!-- CTA -->
-    <a href="https://t.me/your_bot" class="cta" target="_blank">🚀 Заказать бота</a>
-
-    <!-- Подвал -->
-    <div class="footer">© 2025 AI Automation Lab. Все права защищены.</div>
-
+    <h1>AI-боты • Автоматизация • CRM</h1>
+    <p class="description">Создаём умных ассистентов, подключаем Telegram и WhatsApp, Google Sheets, Altegio, AmoCRM и многое другое.</p>
   </div>
+
+  <!-- О нас -->
+  <section class="about">
+    <h2>О нас</h2>
+    <p>Мы — команда разработчиков, автоматизирующая бизнес-процессы с помощью ИИ и чат-ботов. Более 5 лет опыта, десятки интеграций: от CRM до платёжных систем.</p>
+  </section>
+
+  <!-- Примеры работ -->
+  <section class="projects">
+    <h2>Примеры работ</h2>
+    <div class="projects-gallery">
+      <img src="12.jpg" alt="Пример 1" onclick="openModal(this.src)">
+      <img src="13.jpg" alt="Пример 2" onclick="openModal(this.src)">
+      <img src="14.jpg" alt="Пример 3" onclick="openModal(this.src)">
+    </div>
+  </section>
+
+  <!-- Тест -->
+  <section class="about">
+    <h2>Протестируйте бота и финансовый блок</h2>
+    <p>Мы предлагаем вам протестировать нашего чат-бота и встроенный финансовый дашборд прямо сейчас:</p><br>
+    <p>1. Перейдите в тестовый дашборд:</p>
+    <a href="https://t.me/your_bot" class="cta" target="_blank">Дашборд</a>
+    <p>2. Перейдите в Telegram:</p>
+    <a href="https://t.me/your_bot" class="cta" target="_blank">Telegram</a>
+    <p>3. Оцените фин. блок: посмотрите, как фиксируются заявки, расходы, доход и графики.</p>
+  </section>
+
+  <!-- Услуги -->
+  <section class="services">
+    <h2>Услуги и цены</h2>
+    <ul>
+      <li><span>Telegram-бот под ключ</span><span>от 50 000₸</span></li>
+      <li><span>WhatsApp-бот с рассылкой</span><span>от 60 000₸</span></li>
+      <li><span>CRM + Google Sheets интеграция</span><span>от 40 000₸</span></li>
+      <li><span>AI-бот (ChatGPT/Claude)</span><span>от 70 000₸</span></li>
+    </ul>
+  </section>
+
+  <!-- CTA -->
+  <a href="https://t.me/your_bot" class="cta" target="_blank">🚀 Заказать бота</a>
+
+  <!-- Подвал -->
+  <div class="footer">© 2025 AI Automation Lab. Все права защищены.</div>
+
+</div>
+
+<!-- Модальное окно -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <span class="modal-close" onclick="closeModal()">×</span>
+  <img id="modal-img" src="" alt="Увеличенное изображение" />
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById('modal-img').src = src;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
