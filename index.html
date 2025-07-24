@@ -17,6 +17,7 @@
       color: white;
       line-height: 1.6;
       padding: 20px;
+      overflow-x: hidden;
     }
 
     .container {
@@ -30,7 +31,6 @@
     }
 
     .logo {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
       width: 70px;
       height: 70px;
       margin: 0 auto 15px;
@@ -40,10 +40,11 @@
       justify-content: center;
     }
 
-    .logo svg {
-      width: 32px;
-      height: 32px;
-      stroke: white;
+    .logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      border-radius: 50%;
     }
 
     h1 {
@@ -90,6 +91,8 @@
       color: white;
       text-align: center;
       margin: 20px 0;
+      white-space: normal;
+      word-wrap: break-word;
     }
 
     @keyframes pulse {
@@ -114,17 +117,17 @@
       color: #d1d5db;
     }
 
-	.projects-gallery {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-	  gap: 15px;
-	}
-    
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
 
-    .projects img {
+    .projects-gallery img {
       width: 100%;
       border-radius: 10px;
       border: 2px solid #2d2d2d;
+      display: block;
     }
 
     .services ul {
@@ -149,13 +152,12 @@
       margin: 40px 0 10px;
     }
 
- @media (max-width: 500px) {
-  h1 { font-size: 20px; }
-  .projects-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-}
-
+    @media (max-width: 500px) {
+      h1 { font-size: 20px; }
+      .projects-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
@@ -164,46 +166,43 @@
 
     <!-- Шапка -->
     <div class="header">
-      <!-- Новое (твое лого) -->
-<div class="logo" style="padding: 0; background: none;">
-  <img src="logo.jpg" alt="Логотип" style="width: 70px; height: 70px; object-fit: contain; border-radius: 50%;" />
-</div>
-
+      <div class="logo">
+        <img src="logo.jpg" alt="Логотип" />
+      </div>
       <h1>AI-боты • Автоматизация • CRM</h1>
       <p class="description">Создаём умных ассистентов, подключаем Telegram и WhatsApp, Google Sheets, Altegio, AmoCRM и многое другое.</p>
     </div>
 
- <!-- О нас -->
+    <!-- О нас -->
     <section class="about">
       <h2>О нас</h2>
       <p>Мы — команда разработчиков, автоматизирующая бизнес-процессы с помощью ИИ и чат-ботов. Более 5 лет опыта, десятки интеграций: от CRM до платёжных систем.</p>
     </section>
 
-	<!-- Примеры работ -->
-	<section class="projects">
-	  <h2>Примеры работ</h2>
-	  <div class="projects-gallery">
-	    <img src="12.jpg" alt="Пример 1">
-	    <img src="13.jpg" alt="Пример 2">
-	    <img src="14.jpg" alt="Пример 3">
-	  </div>
-	</section>
-    
+    <!-- Примеры работ -->
+    <section class="projects">
+      <h2>Примеры работ</h2>
+      <div class="projects-gallery">
+        <img src="12.jpg" alt="Пример 1">
+        <img src="13.jpg" alt="Пример 2">
+        <img src="14.jpg" alt="Пример 3">
+      </div>
+    </section>
 
- <!-- О нас -->
+    <!-- Тест -->
     <section class="about">
       <h2>Протестируйте бота и финансовый блок</h2>
       <p>Мы предлагаем вам протестировать нашего чат-бота и встроенный финансовый дашборд прямо сейчас:</p><br>
-	  <ol>
-	      <li>Перейдите в тестовый дашборд: нажмите кнопку ниже и откройте.</li>
-		   <a href="https://t.me/your_bot" class="cta" target="_blank">Дашборд</a>
-	      <li>Перейдите в Telegram: нажмите кнопку ниже и откройте бота.</li>
-	   <a href="https://t.me/your_bot" class="cta" target="_blank">Telegram</a>
-	      <li>Оцените фин. блок: посмотрите, как фиксируются заявки, расходы, доход и графики.</li>
-	    </ol>
+      <ol>
+        <li>Перейдите в тестовый дашборд: нажмите кнопку ниже и откройте.</li>
+        <a href="https://t.me/your_bot" class="cta" target="_blank">Дашборд</a>
+        <li>Перейдите в Telegram: нажмите кнопку ниже и откройте бота.</li>
+        <a href="https://t.me/your_bot" class="cta" target="_blank">Telegram</a>
+        <li>Оцените фин. блок: посмотрите, как фиксируются заявки, расходы, доход и графики.</li>
+      </ol>
     </section>
 
-    <!-- Услуги и цены -->
+    <!-- Услуги -->
     <section class="services">
       <h2>Услуги и цены</h2>
       <ul>
@@ -213,13 +212,9 @@
         <li><span>AI-бот (ChatGPT/Claude)</span><span>от 70 000₸</span></li>
       </ul>
     </section>
-<br>
-<br>
-    <!-- Кнопки -->
-   
-    <a href="https://t.me/your_bot" class="cta" target="_blank">🚀 Заказать бота</a>
 
-   
+    <!-- CTA -->
+    <a href="https://t.me/your_bot" class="cta" target="_blank">🚀 Заказать бота</a>
 
     <!-- Подвал -->
     <div class="footer">© 2025 AI Automation Lab. Все права защищены.</div>
