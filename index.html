@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IB DataLink — Автоматизация</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.umd.js"></script>
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-white to-gray-100 text-gray-800 min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full px-6 py-10 text-center bg-white rounded-3xl shadow-2xl fade-in">
+    <!-- Логотип -->
+    <div class="mb-6">
+      <img src="https://via.placeholder.com/120x120.png?text=IB" alt="IB Logo" class="mx-auto w-24 h-24 rounded-2xl shadow-lg ring-2 ring-blue-500" />
+    </div>
+
+    <!-- Название и описание -->
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-2 tracking-tight">IB DataLink</h1>
+    <p class="text-base text-gray-600 mb-6 leading-relaxed">Автоматизация бизнес-процессов · Интеграции · Боты · Финансовые дашборды</p>
+
+    <!-- Кнопки -->
+    <div class="space-y-3 text-left">
+      <a href="https://t.me/your_bot" target="_blank" class="block w-full py-3 px-5 rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition shadow-md font-medium">
+        🤖 Оставить заявку на автоматизацию
+      </a>
+      <a href="https://yourdomain.kz/demo" target="_blank" class="block w-full py-3 px-5 rounded-xl text-white bg-green-500 hover:bg-green-600 transition shadow-md font-medium">
+        📊 Демо: Финансовый дашборд
+      </a>
+      <a href="https://yourdomain.kz/portfolio" target="_blank" class="block w-full py-3 px-5 rounded-xl text-white bg-indigo-500 hover:bg-indigo-600 transition shadow-md font-medium">
+        📁 Примеры интеграций и кейсы
+      </a>
+      <a href="https://wa.me/77001234567" target="_blank" class="block w-full py-3 px-5 rounded-xl text-white bg-emerald-500 hover:bg-emerald-600 transition shadow-md font-medium">
+        💬 WhatsApp для связи
+      </a>
+      <a href="https://yourdomain.kz/services" target="_blank" class="block w-full py-3 px-5 rounded-xl text-white bg-yellow-500 hover:bg-yellow-600 transition shadow-md font-medium">
+        🧰 Всё, с чем мы работаем
+      </a>
+    </div>
+
+    <!-- Подвал -->
+    <div class="text-sm text-gray-400 mt-8">
+      © 2025 IB DataLink. Все права защищены.
+    </div>
+  </div>
+</body>
+</html>
